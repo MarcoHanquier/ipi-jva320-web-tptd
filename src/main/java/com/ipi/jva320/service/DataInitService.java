@@ -26,5 +26,9 @@ public class DataInitService implements CommandLineRunner {
                 new SalarieAideADomicile("Jean", LocalDate.parse("2022-12-05"), LocalDate.parse("2022-12-05"),
                         20, 0,
                         80, 10, 1));
+
+
     }
+
+
 }

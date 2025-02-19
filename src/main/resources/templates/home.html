@@ -8,31 +8,11 @@
 </head>
 <body>
 
-<div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="http://localhost:8080/">Aide à domicile RH - gestion des salariés</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li><a href="http://localhost:8080/salaries?page=0&amp;size=10&amp;sortProperty=id&amp;sortDirection=ASC" class="nav-link">Liste des salariés <span class="badge badge-primary">26</span></a></li>
-            </ul>
-
-            <form class="form-inline my-2 my-lg-0" role="search" action="http://localhost:8080/salaries" method="GET">
-                <div class="form-group">
-                    <input name="matricule" class="form-control" placeholder="Rechercher un nom" type="text">
-                </div>
-                <button type="submit" class="btn btn-outline-success ml-2 my-2 my-sm-0">Rechercher</button>
-            </form>
-        </div>
-    </nav>
-</div>
+<div th:insert="~{common :: navbar}"></div>
 
 <div class="container mt-2">
     <div class="jumbotron">
-        <h1>Bienvenue dans l'interface d'administration RH ! (26 salariés)</h1>
+        <h1>Bienvenue dans l'interface d'administration RH ! (<span th:text="${countSalaries}"></span> salariés)</h1>
         <p>Voir dans <code>README.md</code> comment configurer la base de données de l'application, la lancer et afficher une page statique.</p>
         <p>Cette application est développée sous forme de Controllers Spring MVC et templates Thymeleaf. Les premiers sont à développer et les seconds à enrichir à partir des pages HTML existantes.</p>
         <p/>
@@ -72,7 +52,7 @@
             </li>
             <li class="list-group-item">
                 <h4 class="list-group-item-heading">Création d'un salarié aide à domicile</h4>
-                <p class="list-group-item-text">En allant à <a href="http://localhost:8080/salaries/aide/new">http://localhost:8080/salaries/aide/new</a> ou via le bouton <em>Nouveau salarié</em> présent dans la liste des salariés, on accède au formulaire de création d'un salarié. Développer ou enrichir le bon Controller pour traiter l'appel <code>POST /salaries/save</code> avec les données du formulaire qui sont envoyées de manière à récupérer ces dernières côté serveur et en créer un nouveau salarié en utilisant la bonne méthode de SalarieAideADomicileService (donc à injecter dans le controller à l'aide de l'annotation @Autowired).</p>
+                <p class="list-group-item-text">En allant à <a href="http://localhost:8080/salaries/new">http://localhost:8080/salaries/new</a> ou via le bouton <em>Nouveau salarié</em> présent dans la liste des salariés, on accède au formulaire de création d'un salarié. Développer ou enrichir le bon Controller pour traiter l'appel <code>POST /salaries/save</code> avec les données du formulaire qui sont envoyées de manière à récupérer ces dernières côté serveur et en créer un nouveau salarié en utilisant la bonne méthode de SalarieAideADomicileService (donc à injecter dans le controller à l'aide de l'annotation @Autowired).</p>
             </li>
             <li class="list-group-item">
                 <h4 class="list-group-item-heading">Afficher le détail des salariés créés</h4>
